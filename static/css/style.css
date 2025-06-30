@@ -1,0 +1,118 @@
+/* static/style.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #1d1d2c, #2d2f77);
+    color: #fff;
+    margin: 0;
+    padding: 2rem;
+    min-height: 100vh;
+    display: block;
+}
+
+
+.container {
+    max-width: 500px;
+    width: 100%;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    box-shadow: 0 0 20px rgba(255, 0, 200, 0.2);
+    padding: 2rem;
+    text-align: center;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+
+h1, h2 {
+    font-size: 2rem;
+    color: #fff;
+    margin-bottom: 1rem;
+}
+
+input, button {
+    width: 100%;
+    padding: 0.9rem;
+    margin-top: 1rem;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+input {
+    background: #2e2e45;
+    color: #fff;
+    border: 1px solid #555;
+}
+
+input::placeholder {
+    color: #aaa;
+}
+
+button {
+    background: linear-gradient(135deg, #ff00cc, #3333ff);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 10px rgba(255, 0, 200, 0.4);
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 1rem;
+}
+
+li {
+    background: rgba(255, 255, 255, 0.08);
+    padding: 0.8rem;
+    margin-bottom: 0.5rem;
+    border-radius: 10px;
+    color: #fff;
+}
+
+a {
+    color: #f0f;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.flash-message {
+    margin-bottom: 1rem;
+    padding: 0.8rem;
+    background: #ff3b30;
+    border-radius: 12px;
+    font-weight: 600;
+    color: white;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@media screen and (max-width: 480px) {
+    .container {
+        padding: 1.2rem;
+        border-radius: 12px;
+    }
+
+    h1, h2 {
+        font-size: 1.5rem;
+    }
+
+    button, input {
+        font-size: 0.95rem;
+    }
+}

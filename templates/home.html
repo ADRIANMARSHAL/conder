@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Conder — Connect with Your Crush</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <h1>Welcome to Conder.</h1>
+  <p style="max-width: 600px; text-align: center;">
+    Ever wanted to tell your crush how you feel but don’t want to get rejected in public?
+    <strong>Conder</strong> lets you connect to your crush through connecting your instagram handles.
+    If they check the site and search for their instagram handle, they’ll know someone likes them. 
+  </p>
+
+  <div style="margin-top: 30px; display: flex; gap: 20px; flex-wrap: wrap; justify-content: center;">
+    <a href="{{ url_for('submit_crush') }}">
+      <button style="background: #ff69b4;">Submit a Crush</button>
+    </a>
+
+    <a href="{{ url_for('search_instagram') }}">
+      <button style="background: #20c997;">🔍 See Who Likes Me</button>
+    </a>
+  </div>
+
+  <footer style="margin-top: 50px;">
+    <p>Built with love by Adrian Marshal</p>
+  </footer>
+
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
