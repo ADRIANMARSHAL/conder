@@ -34,7 +34,6 @@ def submit_crush():
             flash("Please fill out both fields.")
             return redirect('/submit_crush')
 
-        # Clean up and standardize the Instagram handle
         instagram = instagram.strip()
         if not instagram.startswith('@'):
             instagram = '@' + instagram
