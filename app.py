@@ -7,16 +7,15 @@ import os
 app = Flask(__name__)
 app.secret_key = 'agneswayua'
 
-# Use SQLite for local; you can switch to PostgreSQL on Render
+# Use SQLite locally; use PostgreSQL in production
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///crushes.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db.init_app(app)
 
-if __name__ == '__main__':
-    with app.app_context():
-        db.create_all()
-    app.run(debug=True)
+@app.before_first_request
+def create_tables():
+    db.create_all()
 
 @app.route('/')
 def home():
@@ -60,7 +59,6 @@ def results():
         flash("No handle provided")
         return redirect('/search')
     
-    # Normalize input
     handle = handle.strip()
     if not handle.startswith('@'):
         handle = '@' + handle
