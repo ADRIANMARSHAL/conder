@@ -40,6 +40,7 @@ def submit_crush():
         db.session.add(new_crush)
         db.session.commit()
 
+        print(f"Saving crush: {name} likes {instagram}")
         flash("Crush submitted successfully!")
         return redirect('/')
 
@@ -56,9 +57,12 @@ def results():
         flash("No handle provided")
         return redirect('/search')
     
-    handle = handle.strip()
+    handle = handle.strip().lower()
     if not handle.startswith('@'):
         handle = '@' + handle
+
+    print(f"Searching for: {handle}")
+    print(f"Matches found: {len(matches)}")
 
     matches = Crush.query.filter(Crush.instagram.ilike(handle)).all()
     return render_template('results.html', handle=handle, matches=matches)
