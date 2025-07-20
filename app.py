@@ -7,13 +7,11 @@ import os
 app = Flask(__name__)
 app.secret_key = 'agneswayua'
 
-# Use SQLite locally; use PostgreSQL in production
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///crushes.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db.init_app(app)
 
-@app.before_first_request
 def create_tables():
     db.create_all()
 
